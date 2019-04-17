@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Created by max on 2019-04-09
  */
 @Entity
-public class Ingridient {
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,13 @@ public class Ingridient {
 
     @ManyToOne
     private Recipe recipe;
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
 
     public Long getId() {
         return id;

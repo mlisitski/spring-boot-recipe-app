@@ -15,9 +15,9 @@ public class Notes {
     @OneToOne
     private Recipe recipe;
 
-    // LOB - Large objects, String value can be more then in JPA
+    // LOB - Large objects, String value can be more then in JPA 245 chars
     @Lob
-    private String description;
+    private String recipeNotes;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Notes {
         this.recipe = recipe;
     }
 
-    public String getDescription() {
-        return description;
+    public String getRecipeNotes() {
+        return recipeNotes;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRecipeNotes(String recipeNotes) {
+        this.recipeNotes = recipeNotes;
     }
 }

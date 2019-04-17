@@ -8,5 +8,16 @@
 
 <h1>My recipes for Max the greatest! Automates setup </h1>
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="recipe: ${recipes}">
+        <td th:text="${recipe.id}">Recipe ID</td>
+        <td th:text="${recipe.description}">Recipe Description</td>
+    </tr>
+</table>
+
 </body>
 </html>
