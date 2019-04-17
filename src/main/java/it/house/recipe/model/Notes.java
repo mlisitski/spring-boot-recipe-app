@@ -9,6 +9,8 @@ import javax.persistence.*;
  */
 
 @Data
+//overrides to avoid loop and exception java.lang.StackOverflowError: null
+@EqualsAndHashCode(exclude = "recipe")
 @Entity
 public class Notes {
 

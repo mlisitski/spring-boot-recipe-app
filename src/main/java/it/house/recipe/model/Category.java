@@ -9,6 +9,8 @@ import java.util.Set;
  * Created by max on 2019-04-11
  */
 @Data
+//overrides to avoid loop and exception java.lang.StackOverflowError: null
+@EqualsAndHashCode(exclude = "recipes")
 @Entity
 public class Category {
     @Id
