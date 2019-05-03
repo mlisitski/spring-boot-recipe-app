@@ -1,9 +1,12 @@
 package it.house.recipe.controllers;
 
-import it.house.recipe.repositories.RecipeRepository;
+import it.house.recipe.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.persistence.ManyToOne;
 
 /**
  * Created by max on 2019-04-06
@@ -11,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RecipeController {
 
-    private RecipeRepository recipeRepository;
+    private final RecipeService recipeService;
 
-    public RecipeController(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
+    public RecipeController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
-    @RequestMapping("/recipes")
-    public String getRecipe(Model model) {
-        model.addAttribute("recipes", recipeRepository.findAll());
-        return "recipes";
+    @RequestMapping("/recipe/show/{id}")
+    public String showById(@PathVariable String id, Model model){
+        model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
+        return "recipe/show";
     }
 }
