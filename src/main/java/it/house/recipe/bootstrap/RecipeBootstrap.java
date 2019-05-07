@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Max. 2019-04-12
@@ -64,6 +63,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.setPrepTime(10);
         guacRecipe.setCookTime(0);
         guacRecipe.setDifficulty(Difficulty.EASY);
+        guacRecipe.setServings(4);
+        guacRecipe.setSource("WWW>");
+        guacRecipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvpiV9Sd");
         guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the " +
                 "inside of the avocado with a blunt knife and scoop out the flesh with a spoon" +
                 "\n" +
@@ -82,10 +84,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 " and to prevent air reaching it. (The oxygen in the air causes oxidation which will turn the " +
                 "guacamole brown.) Refrigerate until ready to serve.\n" +
                 "Chilling tomatoes hurts their flavor, so if you want to add chopped tomato to your guacamole, add it" +
-                " just before serving.\n" +
-                "\n" +
-                "\n" +
-                "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvpiV9Sd");
+                " just before serving.");
 
         Notes guacNotes = new Notes();
         guacNotes.setRecipeNotes("For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your " +
@@ -95,10 +94,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "The simplest version of guacamole is just mashed avocados with salt. Don't let the lack of " +
                 "availability of other ingredients stop you from making guacamole.\n" +
                 "To extend a limited supply of avocados, add either sour cream or cottage cheese to your guacamole " +
-                "dip. Purists may be horrified, but so what? It tastes great.\n" +
-                "\n" +
-                "\n" +
-                "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
+                "dip. Purists may be horrified, but so what? It tastes great.");
 
         guacRecipe.setNotes(guacNotes);
 
@@ -127,6 +123,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacosRecipe.setCookTime(9);
         tacosRecipe.setPrepTime(20);
         tacosRecipe.setDifficulty(Difficulty.MODERATE);
+        tacosRecipe.setSource("WWW");
+        tacosRecipe.setServings(5);
+        tacosRecipe.setUrl("http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvtrAnNm");
 
         tacosRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n" +
                 "2 Make the marinade and coat the chicken: In a large bowl, stir together the chili powder, oregano, " +
@@ -143,10 +142,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "Wrap warmed tortillas in a tea towel to keep them warm until serving.\n" +
                 "5 Assemble the tacos: Slice the chicken into strips. On each tortilla, place a small handful of " +
                 "arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with" +
-                " the thinned sour cream. Serve with lime wedges.\n" +
-                "\n" +
-                "\n" +
-                "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvtrAnNm");
+                " the thinned sour cream. Serve with lime wedges.");
 
         Notes tacoNotes = new Notes();
         tacoNotes.setRecipeNotes("We have a family motto and it is this: Everything goes better in a tortilla.\n" +
@@ -158,10 +154,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "sweet orange juice while the grill is heating. You can also use this time to prepare the taco " +
                 "toppings.\n" +
                 "Grill the chicken, then let it rest while you warm the tortillas. Now you are ready to assemble the " +
-                "tacos and dig in. The whole meal comes together in about 30 minutes!\n" +
-                "\n" +
-                "\n" +
-                "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ");
+                "tacos and dig in. The whole meal comes together in about 30 minutes!");
 
         tacosRecipe.setNotes(tacoNotes);
 
