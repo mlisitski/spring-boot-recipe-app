@@ -69,7 +69,7 @@
                                     <label>Difficulty:</label>
                                     <select class="form-control" th:field="*{difficulty}">
                                         <option th:each="difficultyValue : ${T(it.house.recipe.model.Difficulty).values()}"
-                                                th:value="${difficultyValue.toString()}"
+                                                th:value="${difficultyValue.name()}"
                                                 th:text="${difficultyValue.toString()}"
                                         >val
                                         </option>
