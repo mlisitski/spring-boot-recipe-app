@@ -32,46 +32,58 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Recipe Description:</label>
                                     <input type="text" class="form-control" th:field="*{description}"/>
+                                    <div class="row">
+                                        <div class="col-md-3 form-group">
+                                            <label>Categories:</label>
+                                        </div>
+                                        <div class="col-md-9 form-group">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="checkbox" value=""/>
+                                                    Cat 1
+                                                </label>
+                                            </div>
+                                            <div class="radio" th:remove="all">
+                                                <label>
+                                                    <input type="checkbox" value=""/>
+                                                    Cat 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div id="images1" align="middle"><img
+                                            src="../../static/images/guacamole400x400WithX.jpg"
+                                            th:src="@{/images/guacamole400x400WithX.jpg}"
+                                            width="200" height="200"></div>
+
+                                    <div style="clear:both;"></div>
+                                    <div id="button1" align="middle"><a class="btn btn-default" href="#"
+                                                                        th:href="@{'/recipe/' + ${recipe.id} + '/image'}"
+                                                                        role="button">Change Image</a></div>
+
                                 </div>
                             </div>
+
                             <div class="row">
-                                <div class="col-md-3 form-group">
-                                    <label>Categories:</label>
-                                </div>
-                                <div class="col-md-9 form-group">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="checkbox" value=""/>
-                                            Cat 1
-                                        </label>
-                                    </div>
-                                    <div class="radio" th:remove="all">
-                                        <label>
-                                            <input type="checkbox" value=""/>
-                                            Cat 2
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Prep Time:</label>
                                     <input type="text" class="form-control" th:field="*{prepTime}"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Cooktime:</label>
                                     <input type="text" class="form-control" th:field="*{cookTime}"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Difficulty:</label>
                                     <select class="form-control" th:field="*{difficulty}">
                                         <option th:each="difficultyValue : ${T(it.house.recipe.model.Difficulty).values()}"
                                                 th:value="${difficultyValue.name()}"
-                                                th:text="${difficultyValue.toString()}"
-                                        >val
+                                                th:text="${difficultyValue.toString()}">Test option
                                         </option>
                                     </select>
                                     <select class="form-control" th:remove="all">
@@ -82,15 +94,15 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Servings:</label>
                                     <input type="text" class="form-control" th:field="*{servings}"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>Source:</label>
                                     <input type="text" class="form-control" th:field="*{source}"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-4 form-group">
                                     <label>URL:</label>
                                     <input type="text" class="form-control" th:field="*{url}"/>
                                 </div>
@@ -100,12 +112,13 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-md-11 ">
+                                <div class="col-md-10 ">
                                     <h1 class="panel-title">Ingredients</h1>
                                 </div>
-                                <div class="col-md-1">
+                                <div class="col-md-2">
                                     <a class="btn btn-default" href="#"
-                                       th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
+                                       th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">Update
+                                        List</a>
                                 </div>
                             </div>
                         </div>
