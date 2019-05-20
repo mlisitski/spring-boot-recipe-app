@@ -3,6 +3,7 @@ package it.house.recipe.services;
 import it.house.recipe.commands.RecipeCommand;
 import it.house.recipe.converters.RecipeCommandToRecipe;
 import it.house.recipe.converters.RecipeToRecipeCommand;
+import it.house.recipe.exceptions.NotFoundException;
 import it.house.recipe.model.Recipe;
 import it.house.recipe.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -42,11 +43,11 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe findById(long l) {
+    public Recipe findById(Long l) {
         Optional<Recipe> recipeOptional = recipeRepository.findById(l);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found for ID value: " + l.toString());
         }
 
         return recipeOptional.get();

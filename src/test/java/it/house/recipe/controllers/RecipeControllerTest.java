@@ -1,6 +1,7 @@
 package it.house.recipe.controllers;
 
 import it.house.recipe.commands.RecipeCommand;
+import it.house.recipe.exceptions.NotFoundException;
 import it.house.recipe.model.Recipe;
 import it.house.recipe.services.RecipeService;
 import org.junit.Before;
@@ -54,6 +55,25 @@ public class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"));
     }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception {
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(view().name("404error"));
+//                .andExpect(status().isNotFound()); //
+    }
+
+    @Test
+    public void testGetRecipeBadRequest() throws Exception {
+
+        mockMvc.perform(get("/recipe/asd/show"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400error"));
+    }
+
 
     @Test
     public void testGetNewRecipeForm() throws Exception {
