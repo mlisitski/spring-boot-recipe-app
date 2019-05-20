@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class ExceptionHandlerController {
 
+    private static final String ERROR_URL_404 = "404error";
+
+
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
     public ModelAndView handleNotFound(Exception exception) {
@@ -42,4 +45,5 @@ public class ExceptionHandlerController {
 
         return modelAndView;
     }
+
 }
