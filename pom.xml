@@ -72,7 +72,7 @@
             <version>1.15.0</version>
         </dependency>
 
-        To fix CircleCI build error
+        <!--To fix CircleCI build error-->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
