@@ -41,8 +41,9 @@ jobs:
 
     # run tests!
     # add CodeCove using cobertura maven plugin
-    - run: mvn integration-test cobertura:cobertura
-
+    - run: mvn integration-test
+    - run: mvn cobertura:cobertura
+      
     - store_test_results:
         path: target/surefire-reports
 
