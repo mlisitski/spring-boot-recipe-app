@@ -43,9 +43,9 @@ jobs:
     # add CodeCove using cobertura maven plugin
     - run: mvn integration-test cobertura:cobertura
 
-      - store_test_results:
-          path: target/surefire-reports
+    - store_test_results:
+        path: target/surefire-reports
 
-      - run:
-          name: Send to CodeCov
-          command: bash <(curl -s https://codecov.io/bash)
+    - run:
+        name: Send to CodeCov
+        command: bash <(curl -s https://codecov.io/bash)
